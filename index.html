@@ -425,6 +425,37 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const countElement = document.getElementById("count");
+        const target = 120000;
+        let count = 0;
+        const increment = target / 800 * 8; 
+        const updateCount = () => {
+          count = 0;
+          const animate = () => {
+            count += increment;
+            if (count < target) {
+              countElement.innerText = Math.ceil(count);
+              requestAnimationFrame(animate);
+            } else {
+              countElement.innerText = target;
+            }
+          };
+          animate();
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCount();
+            }
+          });
+        });
+    
+        observer.observe(countElement);
+      });
+    </script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="index.js"></script>
   </body>
