@@ -953,7 +953,7 @@ textarea{
 }
 .about .imgcontanner .aboutimg {
   position: absolute;
-  background: url('/img/abt-content.jpg');
+  background: url('img/abt-content.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
